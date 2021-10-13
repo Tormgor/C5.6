@@ -1,6 +1,6 @@
 import requests
 import json
-from config import keys, API_KEY # запрос в конфигурационого файла
+from config import keys, API_KEY # запрос в конфигурационый файл
 
 class APIException(Exception):
     pass
