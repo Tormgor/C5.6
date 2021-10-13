@@ -10,7 +10,7 @@ class Converter:
     @staticmethod
     def get_price(values):
         if len(values) != 3:
-            raise APIException('Неправильный запрос! Введити три параметра, валюты и число.')
+            raise APIException('Неправильный запрос! Введите три параметра, две валюты и число.')
         quote, base, amount = values
         if quote == base:
             raise APIException(f'Вы указали одинаковые валюты для конвертации.')
