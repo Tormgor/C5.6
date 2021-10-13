@@ -18,12 +18,12 @@ class Converter:
         try:
             quote_ticker = keys[quote]
         except KeyError:
-            raise APIException(f'Укажите валюту из списка /values')
+            raise APIException(f'Укажите валюту из списка /values, Вы запросили {quote}')
 
         try:
             base_ticker = keys[base]
         except KeyError:
-            raise APIException(f'Укажите валюту из списка /values')
+            raise APIException(f'Укажите валюту из списка /values, Вы запросили {base}')
 
         try:
             amount = float(amount)
@@ -32,5 +32,7 @@ class Converter:
 
 # запрос к api конвертации
         r = requests.get(f'http://api.exchangeratesapi.io/v1/latest?access_key={API_KEY}&base={quote_ticker}&symbols={base_ticker}')
+        total_base = float(amount)*float(json.loads(r.content)["rates"][base_ticker])
+        return round(total_base, 2)&symbols={base_ticker}')
         total_base = float(amount)*float(json.loads(r.content)["rates"][base_ticker])
         return round(total_base, 2)
