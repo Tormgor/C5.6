@@ -31,6 +31,8 @@ class Converter:
             raise APIException(f'Конвертация работает с целыми значения валют, вы запросили: {amount}')
 
 # запрос к api конвертации
+# Примечание. Данный api c сайта https://exchangeratesapi.io/  показывает не все пары валют, например нет пар RUB-EUR  RUB-USD, 
+# можно использовать другой источник или производить преобразование внутри программы. 
         r = requests.get(f'http://api.exchangeratesapi.io/v1/latest?access_key={API_KEY}&base={quote_ticker}&symbols={base_ticker}')
         total_base = float(amount)*float(json.loads(r.content)["rates"][base_ticker])
         return round(total_base, 2)&symbols={base_ticker}')
