@@ -35,6 +35,4 @@ class Converter:
 # можно использовать другой источник или производить преобразование внутри программы. 
         r = requests.get(f'http://api.exchangeratesapi.io/v1/latest?access_key={API_KEY}&base={quote_ticker}&symbols={base_ticker}')
         total_base = float(amount)*float(json.loads(r.content)["rates"][base_ticker])
-        return round(total_base, 2)&symbols={base_ticker}')
-        total_base = float(amount)*float(json.loads(r.content)["rates"][base_ticker])
         return round(total_base, 2)
